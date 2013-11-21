@@ -41,19 +41,22 @@ URL    : http://www.paulwoidke.com
                     backgroundSize: colWidth + 'px ' + rowHeight + 'px,' 
                                             + colWidth + 'px ' + rowHeight + 'px,' 
                                             + (colWidth / settings.subsections) + 'px ' + (rowHeight / settings.subsections) + 'px,'
-                                            + (colWidth / settings.subsections) + 'px ' + (rowHeight / settings.subsections) + 'px'
+                                            + (colWidth / settings.subsections) + 'px ' + (rowHeight / settings.subsections) + 'px',
+                    margin: 40,
+                    backgroundImage: 'linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)',
+                    backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                 });
                 
                 var xLabel = chart.find('.x-Label').html(settings.xLabel);
                 var yLabel = chart.find('.y-Label').html(settings.yLabel);
                 
                 xLabel.css({ 
-                    left: $('.chart').width() / 2 - $('.x-Label').width() / 2, 
+                    left: chart.width() / 2 - xLabel.width() / 2, 
                     bottom: -30 
                 });
                 yLabel.css({ 
                     left: -60, 
-                    bottom: $('.chart').height() / 2 - $('.y-Label').height() / 2
+                    bottom: chart.height() / 2 - yLabel.height() / 2
                 });
             });
         }, 
