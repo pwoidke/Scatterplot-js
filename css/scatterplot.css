@@ -1,0 +1,36 @@
+.chart {
+    margin: 40px;
+    background-image: linear-gradient(white 2px, transparent 2px),
+    linear-gradient(90deg, white 2px, transparent 2px),    
+    linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px
+}
+
+.point {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: small;
+}
+
+.x-Label, .y-Label {
+    position: absolute;
+    font-weight: bold;
+}
+
+.y-Label {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
