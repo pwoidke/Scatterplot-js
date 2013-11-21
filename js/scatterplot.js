@@ -76,8 +76,8 @@ URL    : http://www.paulwoidke.com
                 
                 point.addClass('point');
                 point.css({ 
-                    left: settings.xPos - (settings.radius * 0.5), 
-                    bottom: settings.yPos - (settings.radius * 0.5), 
+                    left: settings.xPos - settings.radius, 
+                    bottom: settings.yPos - settings.radius, 
                     backgroundColor: settings.color, 
                     width: settings.radius * 2, 
                     height: settings.radius * 2, 
