@@ -7,32 +7,50 @@
     <h1>Scatterplot.js</h1>
     <br/>
     <h2>Default implementation</h2>
-    <div id="default">
-        <span id="point"></span>
+    <div id="defaultDemo">
+        <span id="defaultPoint"></span>
     </div>
     <div class="code">
         <pre>
             $(document).ready(function () {
-                $('#default').scatter();
-                $('#point').plot();
+                $('#defaultDemo').scatter();
+                $('#defaultPoint').plot();
             });
         </pre>
     </div>
     <br/>
     <h2>Typical implementation</h2>
     
-    <div id="demo">
-        <span id="demoPoint1"></span>
-        <span id="demoPoint2"></span>
-        <span id="demoPoint3"></span>
+    <div id="typicalDemo">
+        <span id="typicalPoint1"></span>
+        <span id="typicalPoint2"></span>
+        <span id="typicalPoint3"></span>
     </div>
     <div class="code">
         <pre>
             $(document).ready(function () {
-                $('#demo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
-                $('#demoPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
-                $('#demoPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
-                $('#demoPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
+                $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
+                $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
+                $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
+                $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
+            });
+        </pre>
+    </div>
+    <br/>
+    <h2>Responsive implementation</h2>
+    
+    <div id="responsiveDemo">
+        <span id="responsivePoint1"></span>
+        <span id="responsivePoint2"></span>
+        <span id="responsivePoint3"></span>
+    </div>
+    <div class="code">
+        <pre>
+            $(document).ready(function () {
+                $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true });
+                $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
+                $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
+                $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
             });
         </pre>
     </div>
@@ -43,12 +61,18 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#default').scatter();
-            $('#point').plot();
-            $('#demo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
-            $('#demoPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
-            $('#demoPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
-            $('#demoPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
+            $('#defaultDemo').scatter();
+            $('#defaultPoint').plot();
+            
+            $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
+            $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
+            $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
+            $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
+            
+            $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true });
+            $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
+            $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
+            $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
         });
     </script>
     
