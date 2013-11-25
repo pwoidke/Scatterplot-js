@@ -1,5 +1,6 @@
 /*********************************************
 
+Scatterplot.js
 Author : Paul Woidke
 URL    : http://www.paulwoidke.com
 
@@ -10,20 +11,25 @@ URL    : http://www.paulwoidke.com
             var settings = $.extend({
                 height: 300,
                 width: 300,
-                xLabel: '&nbsp',
-                yLabel: '&nbsp',
+                xLabel: '',
+                yLabel: '',
                 rows: 1,
                 columns: 1,
                 subsections: 1,
                 color: '#CCC',
-                responsive: false
+                responsive: false,
+                xUnits: [],
+                yUnits: []
             }, options);
 
             return this.each(function () {
 
                 var chart = $(this),
                     colWidth, rowHeight,
-                    xLabel, yLabel;
+                    xLabel, yLabel,
+                    xUnits, yUnits;
+
+                chart.addClass('scatterplot');
 
                 if (settings.width < 1) {
                     settings.width = 0;
@@ -40,8 +46,6 @@ URL    : http://www.paulwoidke.com
                 if (settings.subsections < 1) {
                     settings.subsections = 1;
                 }
-
-                chart.append('<span class="x-Label"></span><span class="y-Label"></span>');
 
                 if (settings.responsive) {
                     chart.addClass('responsive');
@@ -72,24 +76,66 @@ URL    : http://www.paulwoidke.com
                     });
                 }
 
-                xLabel = chart.find('.x-Label').html(settings.xLabel);
-                yLabel = chart.find('.y-Label').html(settings.yLabel);
-
-                xLabel.css({
-                    left: chart.width() / 2 - xLabel.width() / 2,
-                    bottom: -30
-                });
-                yLabel.css({
-                    left: -60,
-                    bottom: chart.height() / 2 - yLabel.height() / 2
-                });
-
-                if (settings.responsive) {
-                    xLabel.css({
-                        left: (chart.width() / 2 - xLabel.width() / 2) / chart.width() * 100 + '%'
+                if (settings.xUnits.length > 0) {
+                    chart.append('<span class="x-Units"><ul></ul></span>');
+                    xUnits = chart.find('.x-Units ul');
+                    $(settings.xUnits).each(function () {
+                        xUnits.append('<li>' + this + '</li>');
                     });
+                    xUnits.find('li').width(1 / (settings.xUnits.length - 1) * 100 + '%');
+                    chart.find('.x-Units').css({
+                        bottom: -xUnits.height()
+                    });
+                }
+                if (settings.yUnits.length > 0) {
+                    chart.append('<span class="y-Units"><ul></ul></span>');
+                    yUnits = chart.find('.y-Units ul');
+                    $(settings.yUnits).each(function () {
+                        yUnits.append('<li>' + this + '</li>');
+                    });
+                    yUnits.find('li').width(1 / (settings.yUnits.length - 1) * 100 + '%');
+                    chart.find('.y-Units').css({
+                        width: chart.height(),
+                        left: -(chart.height() / 2 - yUnits.height() / 2) - yUnits.height(),
+                        bottom: chart.height() / 2 - yUnits.height() / 2
+                    });
+                }
+
+                if (settings.xLabel.length > 0) {
+                    chart.append('<span class="x-Label"></span>');
+                    xLabel = chart.find('.x-Label').html(settings.xLabel);
+                    xLabel.css({
+                        left: chart.width() / 2 - xLabel.width() / 2,
+                        bottom: -(xLabel.height() + chart.find('.x-Units').height())
+                    });
+                    if (settings.responsive) {
+                        xLabel.css({
+                            left: (chart.width() / 2 - xLabel.width() / 2) / chart.width() * 100 + '%'
+                        });
+                    }
+                }
+                if (settings.yLabel.length > 0) {
+                    chart.append('<span class="y-Label"></span>');
+                    yLabel = chart.find('.y-Label').html(settings.yLabel);
                     yLabel.css({
-                        bottom: (chart.height() / 2 - yLabel.height() / 2) / chart.height() * 100 + '%'
+                        left: -(60 + chart.find('.y-Units').height()),
+                        bottom: chart.height() / 2 - yLabel.height() / 2
+                    });
+                    if (settings.responsive) {
+                        yLabel.css({
+                            bottom: (chart.height() / 2 - yLabel.height() / 2) / chart.height() * 100 + '%'
+                        });
+                    }
+                }
+
+                if (settings.xUnits.length > 0) {
+                    chart.css({
+                        marginBottom: 40 + chart.find('.x-Units').height()
+                    });
+                }
+                if (settings.yUnits.length > 0) {
+                    chart.css({
+                        marginLeft: 40 + chart.find('.y-Units').height()
                     });
                 }
             });

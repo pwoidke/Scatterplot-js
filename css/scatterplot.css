@@ -10,7 +10,7 @@
     font-weight: bold;
 }
 
-.y-Label {
+.y-Label, .y-Units {
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -24,4 +24,17 @@
     transform-origin: 50% 50%;
 
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.x-Units, .y-Units {
+  display: table;
+  position: absolute;
+}
+
+.x-Units > ul, .y-Units > ul {
+  display: table-row;
+}
+
+.x-Units > ul > li, .y-Units > ul > li {
+  display: table-cell;
 }

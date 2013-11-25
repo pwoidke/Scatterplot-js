@@ -29,7 +29,7 @@
     <div class="code">
         <pre>
             $(document).ready(function () {
-                $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
+                $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 4 });
                 $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
                 $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
                 $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
@@ -37,7 +37,7 @@
         </pre>
     </div>
     <br/>
-    <h2>Responsive implementation</h2>
+    <h2>Responsive implementation (w/ Units)</h2>
     
     <div id="responsiveDemo">
         <span id="responsivePoint1"></span>
@@ -47,7 +47,7 @@
     <div class="code">
         <pre>
             $(document).ready(function () {
-                $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true });
+                $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });
                 $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
                 $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
                 $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
@@ -64,12 +64,12 @@
             $('#defaultDemo').scatter();
             $('#defaultPoint').plot();
             
-            $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5 });
+            $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 4 });
             $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
             $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
             $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
             
-            $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true });
+            $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });
             $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
             $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
             $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
