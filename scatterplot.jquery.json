@@ -29,5 +29,6 @@
   ],
   "homepage": "https://github.com/pwoidke/Scatterplot-js",
   "docs": "https://github.com/pwoidke/Scatterplot-js/blob/master/README.md",
+  "demo": "http://paulwoidke.com/project/Scatterplot-js/",
   "bugs": "https://github.com/pwoidke/Scatterplot-js/issues"
 }

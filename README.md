@@ -2,6 +2,8 @@
 
 A jQuery plugin for creating 2D [scatter plot](http://en.wikipedia.org/wiki/Scatter_plot) graphs and charts.
 
+[Demo](http://paulwoidke.com/project/Scatterplot-js/)
+
 
 ## Installation
 
