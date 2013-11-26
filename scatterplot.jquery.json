@@ -24,8 +24,7 @@
     "graph",
     "chart",
     "responsive",
-    "data",
-    "value"
+    "data"
   ],
   "homepage": "https://github.com/pwoidke/Scatterplot-js",
   "docs": "https://github.com/pwoidke/Scatterplot-js/blob/master/README.md",
