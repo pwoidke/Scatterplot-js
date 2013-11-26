@@ -90,7 +90,7 @@ $('#scatterplot').scatter({
 
 - Graph `background-position` (used for subsections) not aligned correctly for responsive graphs (Chrome)
 - Graph `background-image` (used for subsections) does not work for responsive graphs (IE)
-- Points shift slightly when resizing responsive graphcs (All browsers)
+- Points shift slightly when resizing responsive graphs (All browsers)
 
 
 ## License
