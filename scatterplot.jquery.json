@@ -1,0 +1,33 @@
+{
+  "name": "scatterplot-js",
+  "version": "1.0.0",
+  "title": "Scatterplot.js",
+  "author": {
+    "name": "Paul Woidke",
+    "url": "http://paulwoidke.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.2"
+  },
+  "description": "A jQuery plugin for creating 2D scatter plot graphs and charts.",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "scatter",
+    "plot",
+    "graph",
+    "chart",
+    "responsive",
+    "data",
+    "value"
+  ],
+  "homepage": "https://github.com/pwoidke/Scatterplot-js",
+  "docs": "https://github.com/pwoidke/Scatterplot-js/blob/master/README.md",
+  "bugs": "https://github.com/pwoidke/Scatterplot-js/issues"
+}
