@@ -60,7 +60,7 @@ $(document).ready(function () {
 ```
 
 
-## SETTINGS
+## Settings
 
 ```javascript
 $('#scatterplot').scatter({
@@ -79,14 +79,14 @@ $('#scatterplot').scatter({
 ```
 
 
-## TODO
+## TODOs
 
 - Improve documentation
 - Clean up and optimize code
 - Create functionality for plotting an array of points
 
 
-## ISSUES
+## Issues
 
 - Graph `background-position` (used for subsections) not aligned correctly for responsive graphs (Chrome)
 - Graph `background-image` (used for subsections) does not work for responsive graphs (IE)
