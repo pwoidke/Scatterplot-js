@@ -1,13 +1,14 @@
 # Scatterplot.js
 
-A jQuery plugin for creating 2D [Scatter plot](http://en.wikipedia.org/wiki/Scatter_plot) graphs and charts.
+A jQuery plugin for creating 2D [scatter plot](http://en.wikipedia.org/wiki/Scatter_plot) graphs and charts.
 
 
 ## Installation
 
-Download `scatterplot.min.js` from [GitHub](https://github.com/pwoidke/Scatterplot-js). Add this file to your site and add the following script reference to your HTML file:
+Download `scatterplot.min.js` and `scatterplot.css` from [GitHub](https://github.com/pwoidke/Scatterplot-js). Add these files to your site by adding the following references in your HTML file:
 
 ```html
+<link href="scatterplot.css" rel="stylesheet" type="text/css" />
 <script src="scatterplot.min.js"></script>
 ```
 
@@ -22,6 +23,7 @@ Create a HTML element to act as your graph and child elements to act as points:
 </div>
 ```
 
+
 With no configuration (default):
 
 ```javascript
@@ -30,6 +32,7 @@ $(document).ready(function () {
     $('#point').plot();
 });
 ```
+
 
 With settings (static):
 
@@ -41,6 +44,7 @@ $(document).ready(function () {
     $('#point3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
 });
 ```
+
 
 With settings (responsive):
 
@@ -82,9 +86,9 @@ $('#scatterplot').scatter({
 
 ## ISSUES
 
-- Graph background-position (used for subsections) not aligned correctly for responsive graphs (Chrome)
+- Graph `background-position` (used for subsections) not aligned correctly for responsive graphs (Chrome)
+- Graph `background-image` (used for subsections) does not work for responsive graphs (IE)
 - Points shift slightly when resizing responsive graphcs (All browsers)
-- Graph background-image (used for subsections) does not work for responsive graphs (IE)
 
 
 ## License
