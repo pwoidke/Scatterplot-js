@@ -1,0 +1,55 @@
+body {
+    background-color: #CCC;
+}
+
+#container {
+    width: 90%;
+    min-width: 1200px;
+    background-color: #FFF;
+    margin: auto;
+    padding: 2em;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 2em;
+}
+
+section {
+    margin-top: 3em;
+}
+
+article {
+    padding: 1em;
+}
+
+a {
+    border-bottom: 1px dotted #333333;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover {
+    border-bottom: 1px dotted #FF3D0D;
+    color: #FF3D0D;
+}
+
+.code {
+    background-color: #EEE;
+    padding: 2em;
+    font-family: "Lucida Console", Monaco, monospace;
+    display: inline-block;
+}
+
+.inline-code {
+    padding: 0;
+    margin: 0;
+}
+
+.indent {
+    margin-left: 2em;
+}
+
+.comment {
+    color: green;
+}

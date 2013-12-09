@@ -1,78 +1,141 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Scatterplot</title>
+    <link href="css/project.css" rel="stylesheet" type="text/css" />
     <link href="css/scatterplot.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>Scatterplot.js</h1>
-    <br/>
-    <h2>Default implementation</h2>
-    <div id="defaultDemo">
-        <span id="defaultPoint"></span>
+    <div id="container">
+        <h1>Scatterplot.js</h1>
+        <h3>A jQuery plugin for creating 2D <a href="http://en.wikipedia.org/wiki/Scatter_plot" target="_blank">scatter plot</a> graphs and charts.</h3>
+        <hr/>
+        <section>
+            <h2>Installation</h2>
+            <p>Download <span class="code inline-code">scatterplot.min.js</span> and <span class="code inline-code">scatterplot.css</span> from <a href="https://github.com/pwoidke/Scatterplot-js" target="_blank">GitHub</a>. Add these files to your site by adding the following references in your HTML file:</p>
+            <div class="code">
+                &lt;link href="scatterplot.css" rel="stylesheet" type="text/css" /&gt;<br/>
+                &lt;script src="scatterplot.min.js"&gt;&lt;/script&gt;
+            </div>
+        </section>
+        <section>
+            <h2>Usage</h2>
+            <p>Create a HTML element to act as your graph and child elements to act as points:</p>
+            <div class="code">
+                &lt;div id="scatterplot"&gt;<br/>
+                <span class="indent">&lt;span id="point"&gt;&lt;/span&gt;</span><br/>
+                &lt;/div&gt;
+            </div>
+            <article>
+                <h3>With no configuration (default):</h3>
+                <div class="code">
+                    $(document).ready(function () {<br/>
+                        <span class="indent">$('#scatterplot').scatter();</span><br/>
+                        <span class="indent">$('#point').plot();</span><br/>
+                    });
+                </div>
+                <div class="demo">
+                    <div id="scatterplot">
+                        <span id="point"></span>
+                    </div> 
+                </div>
+            </article>
+            <article>
+                <h3>With settings (static):</h3>
+                <div class="code">
+                    $(document).ready(function () {<br/>
+                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 4 });</span><br/>
+                        <span class="indent">$('#point1').plot({ xPos: 100, yPos: 100, color: 'red' });</span><br/>
+                        <span class="indent">$('#point2').plot({ xPos: 320, yPos: 145, radius: 30, color: 'blue' });</span><br/>
+                        <span class="indent">$('#point3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });</span><br/>
+                    });
+                </div>
+                <div class="demo">
+                    <div id="scatterplotStatic">
+                        <span id="point1S"></span>
+                        <span id="point2S"></span>
+                        <span id="point3S"></span>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <h3>With settings (responsive):</h3>
+                <div class="code">
+                    $(document).ready(function () {<br/>
+                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: '50%', xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });</span><br/>
+                        <span class="indent">$('#point1').plot({ xPos: '10%', yPos: '10%', color: 'red' });</span><br/>
+                        <span class="indent">$('#point2').plot({ xPos: '60%', yPos: '40%', radius: 30, color: 'blue' });</span><br/>
+                        <span class="indent">$('#point3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });</span><br/>
+                    });
+                </div>
+                <div class="demo">
+                    <div id="scatterplotResponsive">
+                        <span id="point1R"></span>
+                        <span id="point2R"></span>
+                        <span id="point3R"></span>
+                    </div>
+                </div>
+            </article>    
+        </section>
+        <section>
+            <h2>Settings</h2>
+            <div class="code">
+                $('#scatterplot').scatter({<br/>
+                    <span class="indent">height: 300,              <span class="indent comment">// Height of the graph (ex: 500, '50%')</span></span><br/>
+                    <span class="indent">width: 300,                <span class="indent comment">// Width of the graph (ex: 500, '50%')</span></span><br/>
+                    <span class="indent">xLabel: '',                  <span class="indent comment">// Text of label for X-axis</span></span><br/>
+                    <span class="indent">yLabel: '',                  <span class="indent comment">// Text of label for Y-axis</span></span><br/>
+                    <span class="indent">rows: 1,                    <span class="indent comment">// Number of rows in graph</span></span><br/>
+                    <span class="indent">columns: 1,              <span class="indent comment">// Number of columns in graph</span></span><br/>
+                    <span class="indent">subsections: 1,         <span class="indent comment">// Number of subsections for each row/column</span></span><br/>
+                    <span class="indent">color: '#CCC',            <span class="indent comment">// Background color of graph</span></span><br/>
+                    <span class="indent">responsive: false,      <span class="indent comment">// Set whether graph is responsive (position of labels, units, lines, points set to percentages)</span></span><br/>
+                    <span class="indent">xUnits: [],                 <span class="indent comment">// Array of units for X-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])</span></span><br/>
+                    <span class="indent">yUnits: []                  <span class="indent comment">// Array of units for Y-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])</span></span><br/>
+                });
+            </div>
+        </section>
+        <section>
+            <h2>TODOs</h2>
+            <ul>
+                <li>Improve documentation</li>
+                <li>Clean up and optimize code</li>
+                <li>Create functionality for plotting an array of points</li>
+            </ul>
+        </section>
+        <section>
+            <h2> Issues</h2>
+            <ul>
+                <li>Graph <span class="code inline-code">background-position</span> (used for subsections) not aligned correctly for responsive graphs (Chrome)</li>
+                <li>Graph <span class="code inline-code">background-image</span> (used for subsections) does not work for responsive graphs (IE)</li>
+                <li>Points shift slightly when resizing responsive graphs (All browsers)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>License</h2>
+            <p>Copyright 2013 <a href="http://paulwoidke.com/" target="_blank">Paul Woidke</a></p>
+            <p>Licensed under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a></p>
+        </section>
     </div>
-    <div class="code">
-        <pre>
-            $(document).ready(function () {
-                $('#defaultDemo').scatter();
-                $('#defaultPoint').plot();
-            });
-        </pre>
-    </div>
-    <br/>
-    <h2>Typical implementation</h2>
-    
-    <div id="typicalDemo">
-        <span id="typicalPoint1"></span>
-        <span id="typicalPoint2"></span>
-        <span id="typicalPoint3"></span>
-    </div>
-    <div class="code">
-        <pre>
-            $(document).ready(function () {
-                $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 4 });
-                $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
-                $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
-                $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
-            });
-        </pre>
-    </div>
-    <br/>
-    <h2>Responsive implementation (w/ Units)</h2>
-    
-    <div id="responsiveDemo">
-        <span id="responsivePoint1"></span>
-        <span id="responsivePoint2"></span>
-        <span id="responsivePoint3"></span>
-    </div>
-    <div class="code">
-        <pre>
-            $(document).ready(function () {
-                $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });
-                $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
-                $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
-                $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
-            });
-        </pre>
-    </div>
-    <br/>
     
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/scatterplot.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#defaultDemo').scatter();
-            $('#defaultPoint').plot();
+            $('#scatterplot').scatter();
+            $('#point').plot();
             
-            $('#typicalDemo').scatter({ height: 500, width: 500, xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 4 });
-            $('#typicalPoint1').plot({ xPos: 100, yPos: 100, color: 'red' });
-            $('#typicalPoint2').plot({ xPos: 320, yPos: 145, radius: 20, color: 'blue' });
-            $('#typicalPoint3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
-            
-            $('#responsiveDemo').scatter({ height: 500, width: '50%', xLabel: 'X-Label Test', yLabel: 'Y-Label Test', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });
-            $('#responsivePoint1').plot({ xPos: '10%', yPos: '10%', color: 'red' });
-            $('#responsivePoint2').plot({ xPos: '60%', yPos: '40%', radius: 20, color: 'blue' });
-            $('#responsivePoint3').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
+            $('#scatterplotStatic').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 4 });
+            $('#point1S').plot({ xPos: 100, yPos: 100, color: 'red' });
+            $('#point2S').plot({ xPos: 320, yPos: 145, radius: 30, color: 'blue' });
+            $('#point3S').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
+        
+            $('#scatterplotResponsive').scatter({ height: 500, width: '50%', xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 5, columns: 5, subsections: 5, responsive: true, xUnits: ["0%", "20%", "40%", "60%", "80%", "100%"], yUnits: [0, 10, 20, 30, 40, 50] });
+            $('#point1R').plot({ xPos: '10%', yPos: '10%', color: 'red' });
+            $('#point2R').plot({ xPos: '60%', yPos: '40%', radius: 30, color: 'blue' });
+            $('#point3R').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
         });
     </script>
     
