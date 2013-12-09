@@ -12,6 +12,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     margin: 2em;
+    border-radius: 1em;
 }
 
 section {
@@ -39,11 +40,14 @@ a:hover {
     padding: 2em;
     font-family: "Lucida Console", Monaco, monospace;
     display: inline-block;
+    border-radius: 1em;
 }
 
 .inline-code {
     padding: 0;
     margin: 0;
+    border-radius: .5em;
+    padding: 0 3px;
 }
 
 .indent {
