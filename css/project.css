@@ -50,6 +50,19 @@ a:hover {
     margin-left: 2em;
 }
 
+.block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.block-left {
+    width: 200px;
+}
+
+.block-right {
+    width: 940px;
+}
+
 .comment {
     color: green;
 }
