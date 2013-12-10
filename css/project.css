@@ -3,8 +3,6 @@ body {
 }
 
 #container {
-    width: 90%;
-    min-width: 1200px;
     background-color: #FFF;
     margin: auto;
     padding: 2em;
@@ -13,6 +11,7 @@ body {
     line-height: 24px;
     margin: 2em;
     border-radius: 1em;
+	min-width: 600px;
 }
 
 section {
@@ -64,7 +63,7 @@ a:hover {
 }
 
 .block-right {
-    width: 940px;
+    width: 500px;
 }
 
 .comment {
