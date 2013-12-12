@@ -45,7 +45,7 @@
                 <h3>With settings (static):</h3>
                 <div class="code">
                     $(document).ready(function () {<br/>
-                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 4 });</span><br/>
+                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 5 });</span><br/>
                         <span class="indent">$('#point1').plot({ xPos: 100, yPos: 100, color: 'red' });</span><br/>
                         <span class="indent">$('#point2').plot({ xPos: 320, yPos: 145, radius: 30, color: 'blue' });</span><br/>
                         <span class="indent">$('#point3').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });</span><br/>
@@ -76,7 +76,57 @@
                         <span id="point3R"></span>
                     </div>
                 </div>
-            </article>    
+            </article>
+            <article>
+                <h3>Plotting By Class (Static):</h3>
+                <h4>HTML:</h4>
+                <div class="code">
+                    &lt;div id="scatterplot"&gt;<br/>
+                    <span class="indent">&lt;span class="point" style="left: 100px; bottom: 100px;"&gt;&lt;/span&gt;</span><br/>
+                    <span class="indent">&lt;span class="point" style="left: 300px; bottom: 250px; background-color: blue;"&gt;&lt;/span&gt;</span><br/>
+                    <span class="indent">&lt;span class="point" style="left: 400px; bottom: 450px;"&gt;&lt;/span&gt;</span><br/>
+                    &lt;/div&gt;
+                </div>
+                <h4>Javascript:</h4>
+                <div class="code">
+                    $(document).ready(function () {<br/>
+                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5 });</span><br/>
+                        <span class="indent">$('.point').plot();</span><br/>
+                    });
+                </div>
+                <div class="demo">
+                    <div id="scatterplotStaticClass">
+                        <span class="pointSC" style="left: 100px; bottom: 100px;"></span>
+                        <span class="pointSC" style="left: 300px; bottom: 250px; background-color: blue;"></span>
+                        <span class="pointSC" style="left: 400px; bottom: 450px;"></span>
+                    </div>
+                </div>
+            </article>            
+            <article>
+                <h3>Plotting By Class (Responsive):</h3>
+                <h4>HTML:</h4>
+                <div class="code">
+                    &lt;div id="scatterplot"&gt;<br/>
+                    <span class="indent">&lt;span class="point" style="left: 20%; bottom: 20%;"&gt;&lt;/span&gt;</span><br/>
+                    <span class="indent">&lt;span class="point" style="left: 50%; bottom: 50%; background-color: blue;"&gt;&lt;/span&gt;</span><br/>
+                    <span class="indent">&lt;span class="point" style="left: 70%; bottom: 80%;"&gt;&lt;/span&gt;</span><br/>
+                    &lt;/div&gt;
+                </div>
+                <h4>Javascript:</h4>
+                <div class="code">
+                    $(document).ready(function () {<br/>
+                        <span class="indent">$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5, responsive: true });</span><br/>
+                        <span class="indent">$('.point').plot();</span><br/>
+                    });
+                </div>
+                <div class="demo">
+                    <div id="scatterplotResponsiveClass">
+                        <span class="pointRC" style="left: 20%; bottom: 20%;"></span>
+                        <span class="pointRC" style="left: 50%; bottom: 50%; background-color: blue;"></span>
+                        <span class="pointRC" style="left: 70%; bottom: 80%;"></span>
+                    </div>
+                </div>
+            </article>            
         </section>
         <section>
             <h2>Settings</h2>
@@ -127,7 +177,7 @@
             $('#scatterplot').scatter();
             $('#point').plot();
             
-            $('#scatterplotStatic').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 4 });
+            $('#scatterplotStatic').scatter({ height: 500, width: 500, xLabel: 'X-Axis Label', yLabel: 'Y-Axis Label', rows: 4, columns: 5, subsections: 5 });
             $('#point1S').plot({ xPos: 100, yPos: 100, color: 'red' });
             $('#point2S').plot({ xPos: 320, yPos: 145, radius: 30, color: 'blue' });
             $('#point3S').plot({ xPos: 460, yPos: 410, radius: 10, color: 'green' });
@@ -136,6 +186,12 @@
             $('#point1R').plot({ xPos: '10%', yPos: '10%', color: 'red' });
             $('#point2R').plot({ xPos: '60%', yPos: '40%', radius: 30, color: 'blue' });
             $('#point3R').plot({ xPos: '90%', yPos: '75%', radius: 10, color: 'green' });
+            
+            $('#scatterplotStaticClass').scatter({ height: 500, width: 500, xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5 });
+            $('.pointSC').plot();
+
+            $('#scatterplotResponsiveClass').scatter({ height: 500, width: '50%', xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5, responsive: true });
+            $('.pointRC').plot();
         });
     </script>
     
