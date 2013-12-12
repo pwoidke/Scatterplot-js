@@ -83,7 +83,7 @@ $('#scatterplot').scatter({
 
 - Improve documentation
 - Clean up and optimize code
-- Create functionality for plotting an array of points
+- ~~Create functionality for plotting an array of points~~
 
 
 ## Issues
