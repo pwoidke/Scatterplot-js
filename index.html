@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Scatterplot-js : A jQuery plugin for creating scatterplot charts" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Scatterplot-js</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pwoidke/Scatterplot-js">View on GitHub</a>
+
+          <h1 id="project_title">Scatterplot-js</h1>
+          <h2 id="project_tagline">A jQuery plugin for creating scatterplot charts</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pwoidke/Scatterplot-js/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pwoidke/Scatterplot-js/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="scatterplotjs" class="anchor" href="#scatterplotjs"><span class="octicon octicon-link"></span></a>Scatterplot.js</h1>
+
+<h6>
+<a name="v111" class="anchor" href="#v111"><span class="octicon octicon-link"></span></a>(v1.1.1)</h6>
+
+<p>A jQuery plugin for creating 2D <a href="http://en.wikipedia.org/wiki/Scatter_plot">scatter plot</a> graphs and charts.</p>
+
+<p><a href="http://paulwoidke.com/project/Scatterplot-js/">Demo</a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Download <code>scatterplot.min.js</code> and <code>scatterplot.css</code> from <a href="https://github.com/pwoidke/Scatterplot-js">GitHub</a>. Add these files to your site by adding the following references in your HTML file:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"scatterplot.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"scatterplot.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Create a HTML element to act as your graph and child elements to act as points:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scatterplot"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"point"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>With no configuration (default):</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point'</span><span class="p">).</span><span class="nx">plot</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>With settings (static):</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">({</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">'X-Axis Label'</span><span class="p">,</span> <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">'Y-Axis Label'</span><span class="p">,</span> <span class="nx">rows</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">columns</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">subsections</span><span class="o">:</span> <span class="mi">4</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point1'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'red'</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point2'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="mi">320</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="mi">145</span><span class="p">,</span> <span class="nx">radius</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'blue'</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point3'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="mi">460</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="mi">410</span><span class="p">,</span> <span class="nx">radius</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'green'</span> <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>With settings (responsive):</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">({</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="s1">'50%'</span><span class="p">,</span> <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">'X-Axis Label'</span><span class="p">,</span> <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">'Y-Axis Label'</span><span class="p">,</span> <span class="nx">rows</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">columns</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">subsections</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">xUnits</span><span class="o">:</span> <span class="p">[</span><span class="s2">"0%"</span><span class="p">,</span> <span class="s2">"20%"</span><span class="p">,</span> <span class="s2">"40%"</span><span class="p">,</span> <span class="s2">"60%"</span><span class="p">,</span> <span class="s2">"80%"</span><span class="p">,</span> <span class="s2">"100%"</span><span class="p">],</span> <span class="nx">yUnits</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point1'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="s1">'10%'</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="s1">'10%'</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'red'</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point2'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="s1">'60%'</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="s1">'40%'</span><span class="p">,</span> <span class="nx">radius</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'blue'</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#point3'</span><span class="p">).</span><span class="nx">plot</span><span class="p">({</span> <span class="nx">xPos</span><span class="o">:</span> <span class="s1">'90%'</span><span class="p">,</span> <span class="nx">yPos</span><span class="o">:</span> <span class="s1">'75%'</span><span class="p">,</span> <span class="nx">radius</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s1">'green'</span> <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Plotting By Class (static):</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scatterplot"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 100px; bottom: 100px;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 300px; bottom: 250px; background-color: blue;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 400px; bottom: 450px; background-color: green; width: 15px;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span> 
+</pre></div>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">({</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">'X-Axis'</span><span class="p">,</span> <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">'Y-Axis'</span><span class="p">,</span> <span class="nx">rows</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">columns</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">subsections</span><span class="o">:</span> <span class="mi">5</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.point'</span><span class="p">).</span><span class="nx">plot</span><span class="p">();</span>
+<span class="p">});</span> 
+</pre></div>
+
+<p>Plotting By Class (responsive):</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"scatterplot"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 20%; bottom: 20%;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 50%; bottom: 50%; background-color: #f00ff0;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 70%; bottom: 80%; background-color: blue; width: 15px;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span> 
+</pre></div>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">({</span> <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">width</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span> <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">'X-Axis'</span><span class="p">,</span> <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">'Y-Axis'</span><span class="p">,</span> <span class="nx">rows</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">columns</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">subsections</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">responsive</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.point'</span><span class="p">).</span><span class="nx">plot</span><span class="p">();</span>
+<span class="p">});</span> 
+</pre></div>
+
+<h2>
+<a name="settings" class="anchor" href="#settings"><span class="octicon octicon-link"></span></a>Settings</h2>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#scatterplot'</span><span class="p">).</span><span class="nx">scatter</span><span class="p">({</span>
+    <span class="nx">height</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>                <span class="c1">// Height of the graph (ex: 500, '50%')</span>
+    <span class="nx">width</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>                 <span class="c1">// Width of the graph (ex: 500, '50%')</span>
+    <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span>                 <span class="c1">// Text of label for X-axis</span>
+    <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">''</span><span class="p">,</span>                 <span class="c1">// Text of label for Y-axis</span>
+    <span class="nx">rows</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>                    <span class="c1">// Number of rows in graph</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>                 <span class="c1">// Number of columns in graph</span>
+    <span class="nx">subsections</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>             <span class="c1">// Number of subsections for each row/column</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s1">'#CCC'</span><span class="p">,</span>              <span class="c1">// Background color of graph</span>
+    <span class="nx">responsive</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>          <span class="c1">// Set whether graph is responsive (position of labels, units, lines, points set to percentages)</span>
+    <span class="nx">xUnits</span><span class="o">:</span> <span class="p">[],</span>                 <span class="c1">// Array of units for X-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])</span>
+    <span class="nx">yUnits</span><span class="o">:</span> <span class="p">[]</span>                  <span class="c1">// Array of units for Y-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>When creating points, the position, background color, and width can be set using inline styling:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 100px; bottom: 100px; background-color: red; width: 30px;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 50%; bottom: 50%; background-color: #FFFF00; width: 2em;"</span><span class="nt">&gt;&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"point"</span> <span class="na">style=</span><span class="s">"left: 25%; bottom: 50px; background-color: rgba(255, 255, 0, .5); width: 10%;"</span><span class="nt">&gt;&lt;/span&gt;</span> 
+</pre></div>
+
+<h2>
+<a name="todos" class="anchor" href="#todos"><span class="octicon octicon-link"></span></a>TODOs</h2>
+
+<ul>
+<li>Improve documentation</li>
+<li>Clean up and optimize code</li>
+<li><del>Create functionality for plotting an array of points</del></li>
+</ul><h2>
+<a name="issues" class="anchor" href="#issues"><span class="octicon octicon-link"></span></a>Issues</h2>
+
+<ul>
+<li>Graph <code>background-position</code> (used for subsections) not aligned correctly for responsive graphs (Chrome)</li>
+<li>Graph <code>background-image</code> (used for subsections) does not work for responsive graphs (IE)</li>
+<li>Points shift slightly when resizing responsive graphs (All browsers)</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright 2013
+<a href="http://paulwoidke.com">Paul Woidke</a></p>
+
+<p>Licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Scatterplot-js maintained by <a href="https://github.com/pwoidke">pwoidke</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-45986472-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
