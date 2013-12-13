@@ -1,6 +1,7 @@
 /*********************************************
 
 Scatterplot.js
+Version: 1.1.1
 Author : Paul Woidke
 URL    : http://www.paulwoidke.com
 
@@ -65,7 +66,7 @@ URL    : http://www.paulwoidke.com
                     backgroundImage: 'linear-gradient(white 2px, transparent 2px), linear-gradient(90deg, white 2px, transparent 2px), linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px)',
                     backgroundPosition: '-2px -2px, -2px -2px, -1px -1px, -1px -1px'
                 });
-                
+
                 if (settings.responsive) {
                     chart.css({
                         backgroundSize: colWidth + '% ' + rowHeight + '%,' + colWidth + '% ' + rowHeight + '%,' + (colWidth / settings.subsections) + '% ' + (rowHeight / settings.subsections) + '%,' + (colWidth / settings.subsections) + '% ' + (rowHeight / settings.subsections) + '%'
@@ -152,12 +153,14 @@ URL    : http://www.paulwoidke.com
 
             return this.each(function () {
 
-                var point = $(this), left = -1, bottom = -1;
+                var point = $(this),
+                    left = -1,
+                    bottom = -1;
                 settings.responsive = point.parent().hasClass('responsive');
 
                 left = point.css('left');
                 bottom = point.css('bottom');
-                
+
                 if (settings.xPos < 0) {
                     settings.xPos = 0;
                 }
@@ -169,62 +172,92 @@ URL    : http://www.paulwoidke.com
                 }
 
                 point.addClass('point');
+
+                if (point.width() > 0) {
+                    settings.radius = point.width() / 2;
+                }
+                if (point.css('background-color') === settings.color || point.css('background-color') === 'transparent') {
+                    point.css({
+                        backgroundColor: settings.color
+                    });
+                }
                 point.css({
                     width: settings.radius * 2,
                     height: settings.radius * 2,
                     borderRadius: settings.radius
                 });
 
-                if (point.css('background-color') === settings.color || point.css('background-color') === 'transparent') {
-                    point.css({ backgroundColor: settings.color });
-                }
-                
                 if (settings.responsive) {
                     if (typeof settings.xPos === 'string' || settings.xPos instanceof String) {
-                        if (settings.xPos.indexOf('%') != -1) {
-                            point.css({ left: ((parseFloat(settings.xPos) / 100) - (settings.radius / point.parent().width())) * 100 + '%' });
+                        if (settings.xPos.indexOf('%') !== -1) {
+                            point.css({
+                                left: ((parseFloat(settings.xPos) / 100) - (settings.radius / point.parent().width())) * 100 + '%'
+                            });
                         } else {
-                            point.css({ left: settings.xPos });
+                            point.css({
+                                left: settings.xPos
+                            });
                         }
                     } else if (typeof left === 'string' || left instanceof String) {
-                        if (left.indexOf('%') != -1) {
-                            point.css({ left: ((parseFloat(left) / 100) - (settings.radius / point.parent().width())) * 100 + '%' });
-                        }
-                        else {
-                            point.css({ left: left });
+                        if (left.indexOf('%') !== -1) {
+                            point.css({
+                                left: ((parseFloat(left) / 100) - (settings.radius / point.parent().width())) * 100 + '%'
+                            });
+                        } else {
+                            point.css({
+                                left: left
+                            });
                         }
                     } else {
-                        point.css({ left: settings.xPos });
+                        point.css({
+                            left: settings.xPos
+                        });
                     }
                     if (typeof settings.yPos === 'string' || settings.yPos instanceof String) {
-                        if (settings.yPos.indexOf('%') != -1) {
-                            point.css({ bottom: ((parseFloat(settings.yPos) / 100) - (settings.radius / point.parent().width())) * 100 + '%' });
+                        if (settings.yPos.indexOf('%') !== -1) {
+                            point.css({
+                                bottom: ((parseFloat(settings.yPos) / 100) - (settings.radius / point.parent().width())) * 100 + '%'
+                            });
                         } else {
-                            point.css({ bottom: settings.yPos });
+                            point.css({
+                                bottom: settings.yPos
+                            });
                         }
                     } else if (typeof bottom === 'string' || bottom instanceof String) {
-                        if (bottom.indexOf('%') != -1) {
-                            point.css({ bottom: ((parseFloat(bottom) / 100) - (settings.radius / point.parent().width())) * 100 + '%' });
-                        }
-                        else {
-                            point.css({ bottom: bottom });
+                        if (bottom.indexOf('%') !== -1) {
+                            point.css({
+                                bottom: ((parseFloat(bottom) / 100) - (settings.radius / point.parent().width())) * 100 + '%'
+                            });
+                        } else {
+                            point.css({
+                                bottom: bottom
+                            });
                         }
                     } else {
-                        point.css({ bottom: settings.yPos });
+                        point.css({
+                            bottom: settings.yPos
+                        });
                     }
                 } else {
-                    left = parseInt(left);
-                    bottom = parseInt(bottom);
-                    if (left != -1 && !isNaN(left)) {
-                        point.css({ left: left - settings.radius });
+                    left = parseInt(left, 10);
+                    bottom = parseInt(bottom, 10);
+                    if (left !== -1 && !isNaN(left)) {
+                        point.css({
+                            left: left - settings.radius
+                        });
                     } else {
-                        point.css({ left: settings.xPos - settings.radius });
+                        point.css({
+                            left: settings.xPos - settings.radius
+                        });
                     }
-                    if (bottom != -1 && !isNaN(bottom)) {
-                        point.css({ bottom: bottom - settings.radius });
-                    }
-                    else {
-                        point.css({ bottom: settings.yPos - settings.radius });
+                    if (bottom !== -1 && !isNaN(bottom)) {
+                        point.css({
+                            bottom: bottom - settings.radius
+                        });
+                    } else {
+                        point.css({
+                            bottom: settings.yPos - settings.radius
+                        });
                     }
                 }
             });
