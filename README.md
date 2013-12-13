@@ -1,4 +1,4 @@
-# Scatterplot.js
+# Scatterplot.js (*v 1.1.1*)
 
 A jQuery plugin for creating 2D [scatter plot](http://en.wikipedia.org/wiki/Scatter_plot) graphs and charts.
 
@@ -60,6 +60,42 @@ $(document).ready(function () {
 ```
 
 
+Plotting By Class (static):
+
+```html
+<div id="scatterplot">
+    <span class="point" style="left: 100px; bottom: 100px;"></span>
+    <span class="point" style="left: 300px; bottom: 250px; background-color: blue;"></span>
+    <span class="point" style="left: 400px; bottom: 450px; background-color: green; width: 15px;"></span>
+</div> 
+```
+
+```javascript
+$(document).ready(function () {
+    $('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5 });
+    $('.point').plot();
+}); 
+```
+
+
+Plotting By Class (responsive):
+
+```html
+<div id="scatterplot">
+    <span class="point" style="left: 20%; bottom: 20%;"></span>
+    <span class="point" style="left: 50%; bottom: 50%; background-color: #f00ff0;"></span>
+    <span class="point" style="left: 70%; bottom: 80%; background-color: blue; width: 15px;"></span>
+</div> 
+```
+
+```javascript
+$(document).ready(function () {
+$('#scatterplot').scatter({ height: 500, width: 500, xLabel: 'X-Axis', yLabel: 'Y-Axis', rows: 5, columns: 5, subsections: 5, responsive: true });
+    $('.point').plot();
+}); 
+```
+
+
 ## Settings
 
 ```javascript
@@ -76,6 +112,13 @@ $('#scatterplot').scatter({
     xUnits: [],                 // Array of units for X-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])
     yUnits: []                  // Array of units for Y-axis (will be evenly spaced from bottom-left corner to bottom-right corner) (ex: ["0%", "20%", "40%", "60%", "80%", "100%"], [0, 10, 20, 30, 40, 50])
 });
+```
+
+When creating points, the position, background color, and width can be set using inline styling:
+```html
+<span id="point" style="left: 100px; bottom: 100px; background-color: red; width: 30px;"></span>
+<span id="point" style="left: 50%; bottom: 50%; background-color: #FFFF00; width: 2em;"></span>
+<span id="point" style="left: 25%; bottom: 50px; background-color: rgba(255, 255, 0, .5); width: 10%;"></span> 
 ```
 
 
