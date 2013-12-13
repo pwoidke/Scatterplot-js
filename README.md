@@ -1,4 +1,5 @@
-# Scatterplot.js (*v1.1.1*)
+# Scatterplot.js
+######(v1.1.1)
 
 A jQuery plugin for creating 2D [scatter plot](http://en.wikipedia.org/wiki/Scatter_plot) graphs and charts.
 
